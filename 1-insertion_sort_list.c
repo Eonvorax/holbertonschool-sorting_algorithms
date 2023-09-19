@@ -38,8 +38,8 @@ void insertion_sort_list(listint_t **list)
 				swap_node->prev = previous->prev;
 				swap_node->next = previous;
 				previous->prev = swap_node;
+				print_list((*list));
 			}
-			print_list((*list));
 		}
 		current = current->next;
 	}
