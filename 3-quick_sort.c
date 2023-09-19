@@ -46,9 +46,11 @@ int lomuto_part(int array[], int low, int hight, size_t size)
 			}
 		}
 	}
-	swap(&array[i + 1], &array[hight]);
-	print_array(array, size);
-
+	if (array[i + 1] != array[hight])
+	{
+		swap(&array[i + 1], &array[hight]);
+		print_array(array, size);
+	}
 	return (i + 1);
 }
 
