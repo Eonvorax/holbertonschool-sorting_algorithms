@@ -26,17 +26,19 @@ void insertion_sort_list(listint_t **list)
 		while (swap_node->prev != NULL && swap_node->n < swap_node->prev->n)
 		{
 			previous = swap_node->prev;
-			if (swap_node->next != NULL)
-				swap_node->next->prev = previous;
-			if (previous->prev != NULL)
-				previous->prev->next = swap_node;
-			else
-				(*list) = swap_node;
-			previous->next = swap_node->next;
-			swap_node->prev = previous->prev;
-			swap_node->next = previous;
-			previous->prev = swap_node;
-
+			if (swap_node->n < swap_node->prev->n)
+			{
+				if (swap_node->next != NULL)
+					swap_node->next->prev = previous;
+				if (previous->prev != NULL)
+					previous->prev->next = swap_node;
+				else
+					(*list) = swap_node;
+				previous->next = swap_node->next;
+				swap_node->prev = previous->prev;
+				swap_node->next = previous;
+				previous->prev = swap_node;
+			}
 			print_list((*list));
 		}
 		current = current->next;
